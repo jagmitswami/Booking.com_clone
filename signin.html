@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font-size: 0.83rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #container{
+            width: 350px;
+            margin: auto;
+        }
+        a{
+            text-decoration: none;
+        }
+        #head a{
+            font-size: 1.3rem;
+        }
+        button, input{
+            width:100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            border-radius: 3px;
+            border: 0.5px solid black;
+        }
+        button{
+            width:107%;
+            padding: 15px;
+            border: 0px;
+            background-color: blue;
+            color: white;
+        }
+        hr{
+            width:106%;
+            margin-top: 12px;
+        }
+        #head{
+            background-color: darkblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            margin-bottom: 20px;
+        }
+        #head a{
+            color: white;
+            margin-left: 120px;
+        }
+        #menu div{
+            border: 1px solid white;
+            width: 25px;
+            margin-bottom: 5px;
+            margin-right: 120px;
+        }
+        #terms{
+            font-size: 0.7rem;
+            text-align: center;
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+</style>
+<body>
+    <div id="head">
+        <div>
+            <a href="./index.html">Booking.com</a>
+        </div>
+        <div id="menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="container">
+        <h2>
+            Enter password to Sign in
+        </h2>
+        <label>Enter password</label>
+        <input type="password" id="password">
+        <button>Sign in</button>
+        <hr>
+        <p id="terms">
+            By signing in or creating an account, you agree with our <a href="https://www.booking.com/content/terms.en-gb.html?aid=304142">Terms & conditions</a> and <a href="https://www.booking.com/content/privacy.en-gb.html?aid=304142">Privacy statement</a>
+        </p>
+    </div>
+</body>
+</html>
+<script>
+    let index= localStorage.getItem("index");
+    let arr= JSON.parse(localStorage.getItem("userDetails")) || [];
+    let pass= document.querySelector("#password");
+    document.querySelector("button").addEventListener("click",function(){
+        if(arr[index].password==pass.value){
+            localStorage.setItem("logedInDetails",JSON.stringify(arr[index]));
+            alert ("Loged in successfully");
+            window.location.href="./index.html";
+
+        }else{
+            alert ("Incorrect password");
+        }
+    })
+    
+</script>

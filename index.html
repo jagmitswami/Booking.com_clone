@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            width: 100vw;
+            background-color: darkblue;
+            height: 80px;
+            position: sticky;
+            top:0;
+            display: flex;
+            justify-content: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+        #navbar h3{
+            font-size: 25px;
+        }
+        #navbar>div{
+            margin-top:20px;
+            margin-left:130px;
+            margin-right: 130px;
+        }
+        #navbar>div>div{
+            display: inline;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
+        #navbar button{
+            padding:8px 10px;
+            border: 1px solid blue;
+            color: darkblue;
+            border-radius: 2px;
+        }
+        #navbar #property{
+            border: 1px solid white;
+            background-color: darkblue;
+            color: white;
+        }
+        #navbar #support{
+            border-radius: 50%;
+            border: 2px solid white;
+            background-color: darkblue;
+            color: white;
+            padding: 4px;
+        }
+        #navbottom{
+            width: 100vw;
+            background-color: darkblue;
+            padding-bottom: 30px;
+        }
+        #navbottom button{
+            color: white;
+            background-color: darkblue;
+            border: 0px;
+            padding:5px 15px;
+            padding-top: 10px;
+            margin: 11px;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+        #navbottom button:hover{
+            background-color: rgb(8, 8, 165);
+        }
+        #navbottom button:active{
+            border: 1px solid white;
+        }
+        #navbottom div{
+            margin-left:120px;
+        }
+        #navbottom h1{
+            margin-top: 60px;
+            margin-bottom: 10px;
+            font-size: 42px;
+        }
+        #navbottom p{
+            font-size: 1.5rem;
+            padding-bottom: 20px;
+        }
+        #searchbar{
+            width: 85%;
+            margin: auto;
+            border: 3px solid gold;
+            border-radius: 3px;
+            height: 50px;
+            display: flex;
+            position: relative;
+            top:-25px;
+        }
+        #searchbar div{
+            border: 0px;
+            border-right: 3px solid gold;
+            border-radius: 5px;
+            width: 25%;
+            height: 100%;
+        }
+        #searchbar input{
+            border: 0px;
+            border-right: 3px solid gold;
+            width: 100%;
+            height: 100%;
+        }
+        #searchbar button{
+            border: 0px;
+            background-color: darkblue;
+            width: 101%;
+            height: 100%;
+            color: white;
+        }
+        #checkbox{
+            color: black;
+            margin-left: 105px;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        #checkbox>span{
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        #offer{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            height: 180px;
+            width: 85%;
+            margin-left: 105px;
+            color: black;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        #offer img{
+            height: 150px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #offer p{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        #offer button{
+            background-color: blue;
+            color: white;
+            border: 0px;
+            padding: 8px 15px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        #midtopheading,#midmidheading,#midbottomheading,#insDivheading{
+            color: black;
+            width: 85%;
+            margin-left: 105px;
+            padding: 15px 0px;
+        }
+        #midmidheading,#midbottomheading,#insDivheading{
+            margin-top: 20px;
+        }
+        #midtopheading p{
+            margin-top: 5px;
+        }
+        #popdestinations,#popproperties,#midbottom,#insDiv,#insDiv2,#footer{
+            width:85%;
+            display: grid;
+            color: black;
+            gap: 15px;
+            grid-template-columns: repeat(6,1fr);
+            font-size: 0.8rem;
+            margin-left: 105px;
+        }
+        #popproperties,#midbottom{
+            grid-template-columns: repeat(4,1fr);
+        }
+        #insDiv{
+            grid-template-columns: repeat(3,1fr);
+        }
+        #insDiv2{
+            margin-top: 20px;
+            margin-bottom: 80px;
+            grid-template-columns: repeat(2,1fr);
+        }
+        #midtop img, #midmid img, #insDiv img,#insDiv2 img{
+            width: 100%;
+        }
+        img{
+            border-radius: 3px;
+        }
+        #insDiv img,#insDiv2 img{
+            filter: brightness(50%);
+        }
+        #insDiv img:hover,#insDiv2 img:hover{
+            transform: scale(1.02);
+        }
+        #insDiv .insDes, #insDiv2 .insDes{
+            width: 80%;
+            margin-top: -23%;
+            margin-left: 20px;
+            position: relative;
+            text-align: left;
+            color: white;
+            font-weight: bolder;
+        }
+        .insDes p{
+            margin-top: 10px;
+        }
+        
+        #left,#proleft{
+            width:40px;
+            position: absolute;
+            border-radius: 50%;
+            font-size: 35px;
+            top: 780px;
+            left: 6%;
+            border: 0px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            cursor: pointer;
+            color: black;
+        }
+        #right,#proright{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            color: black;
+            position: absolute;
+            border-radius: 50%;
+            font-size: 35px;
+            top: 780px;
+            width:40px;
+            right: 5.5%;
+            border: 0px;
+            cursor: pointer;
+        }
+        #proleft,#proright{
+            top: 1070px;
+        }
+        #footertop{
+            background-color: darkblue;
+            margin-top: 70px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        #footertop button{
+            display: block;
+            margin: auto;
+            margin-bottom: 15px;
+            background-color: darkblue;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 20px;
+            border-radius: 3px;
+        }
+        #footertop div{
+            width: 8%;
+            margin: auto;
+            margin-top: 15px;
+        }
+        #footertop a{
+            color: white;
+        }
+        #footer{
+            margin-top: 30px;
+            margin-bottom: 40px;
+            grid-template-columns: repeat(4,1fr);
+            gap:20px 20px;
+        }
+        #account img{
+            width:5%;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div>
+            <h3>
+                Booking.com
+            </h3>
+        </div>
+        <div>
+            <button id="support">?</button>
+            <button id="property">List your property</button>
+            <div id="account">
+                <!-- <button id="register">Register</button>
+                <button id="signin">Sign in</button> -->
+            </div>
+        </div>
+    </div>
+    <div id="navbottom">
+        <div>
+            <button>Stays</button>
+            <button>Flights</button>
+            <button>Flight + Hotel</button>
+            <button>Car rentals</button>
+            <button>Attractions</button>
+            <button>Airport taxis</button>
+            <h1>
+                Find your next stay
+            </h1>
+            <p>
+                Search low prices on hotels, homes and much more...
+            </p>
+        </div>
+    </div>
+    <div id="searchbar">
+        <div>
+            <input placeholder="Where are you going">
+        </div>
+        <div>
+            <input placeholder="Check-in" type="date">
+        </div>
+        <div>
+            <input placeholder="Check-out" type="date">
+        </div>
+        <div>
+            <button>Search</button>
+        </div>
+    </div>
+    <div id="checkbox">
+        <input id="tickcheckbox" type="checkbox"><span>I'm travelling for work</span>
+    </div>
+    <div id="offer">
+        <div>
+            <img src="https://r-xx.bstatic.com/data/mm/index_banner_getaway22_summer_2.jpg">
+        </div>
+        <div>
+            <h3>Save 15% or more</h3>
+            <p>This summer, make your dream trip a reality. Book and stay for less before 30 Sep 2022</p>
+            <button>Explore deals</button>
+        </div>
+    </div>
+    <div id="midtopheading">
+        <h4>Explore India</h4>
+        <p>These popular destnations have a lot to offer</p>
+    </div>
+    <div id="midtop">
+        <div id="popdestinations"></div>
+        <button id="left"><</button>
+        <button id="right">></button>
+    </div>
+    <div id="midmidheading">
+        <h4>Browse by property type</h4>
+    </div>
+    <div id="midmid">
+        <div id="popproperties"></div>
+        <button id="proleft"><</button>
+        <button id="proright">></button>
+    </div>
+    <div id="insDivheading">
+        <h4>Get inspiration for your next trip</h4>
+    </div>
+    <div id="insDiv">
+        <div>
+            <img src="https://bstatic.com/xdata/images/xphoto/1182x887/63486802.jpg?k=6140686925115e16214dd4a6b7ccfdc268e0ea1b38eb7a769ed593fb5bd6f2a2&o=?size=S">
+            <div class="insDes">
+                <h3>5 breathtaking stays with private pools</h3>
+                <p>Enjoy your holiday reclining by your private infinity or panoramic plunge pool.</p>
+            </div>
+        </div>
+        <div>
+            <img src="https://bstatic.com/xdata/images/xphoto/1182x887/162570747.jpg?k=0b6178ada58f041edaceeef881f98a2dbfab80b4ae478be9962f3071e7bedb94&o=?size=S">
+            <div class="insDes">
+                <h3>7 street foods to try in India</h3>
+                <p>from dosa to dumplings; the best of India's diverse stret foods.</p>
+            </div>
+        </div>
+        <div>
+            <img src="https://bstatic.com/xdata/images/xphoto/1182x887/161581079.jpg?k=75865e0d682e93bf5ae1ba2f87d10567a82541cb8f132e6da6ebd4d708ad3694&o=?size=S">
+            <div class="insDes">
+                <h3>6 destinations for a Spanish sabbatical</h3>
+                <p>Soak up the sun and forget your 9 to 5 in these Spanish long-stays.</p>
+            </div>
+        </div>
+    </div>
+    <div id="insDiv2">
+        <div>
+            <img src="https://bstatic.com/xdata/images/xphoto/1182x887/161566291.jpg?k=c5313f6960ab89d0be06d7264c15af17d4cdd3a9ab66d188977de9a8fbcb80b0&o=?size=S">
+            <div class="insDes">
+                <h3>The best city plus beach breaks</h3>
+                <p>From busy streets to seaside boardwalks, enjoy the best of both worlds.</p>
+            </div>
+        </div>
+        <div>
+            <img src="https://bstatic.com/xdata/images/xphoto/1182x887/161426427.jpg?k=405602d1fb36f759bfe43f485f2396a8da46f0539b139b48cc661365d5565f89&o=?size=S">
+            <div class="insDes">
+                <h3>5 of New York City's most enticing rooftop pools</h3>
+                <p>From Williamsburg hideouts with Manhattan views to a luxury oasis on Park Avenue.</p>
+            </div>
+        </div>
+    </div>
+    <div id="midbottomheading">
+        <h4>Connect with other travellers</h4>
+    </div>
+    <div id="midbottom">
+        <div>
+            <img src="https://cf.bstatic.com/static/img/communities/cover-photo/300x300/india/a047bf294ce2d2e145fdcdd3097b9a7f4e6df229.jpg">
+            <h4>
+                India
+            </h4>
+            <p>
+                Travel community <br> 155,073 travellers
+            </p>
+        </div>
+        <div>
+            <img src="https://cf.bstatic.com/static/img/communities/cover-photo/300x300/travel-discussions/35a717b9feba5c8f800e2a8949dfa5014e4e79b4.jpg">
+            <h4>
+                Travel Talk
+            </h4>
+            <p>
+                Travel community <br> 559,436 travellers
+            </p>
+        </div>
+        <div>
+            <img src="https://cf.bstatic.com/static/img/communities/communities-index/photo-300x300/b2d5ae20ed65039fe73edbeea8b34ccfddbd63b4.png">
+            <h4>
+                More comunities
+            </h4>
+            <p>
+                Travel community <br> 9,894,940 travellers
+            </p>
+        </div>
+    </div>
+    <div id="footertop">
+        <button>List your property</button>
+        <hr>
+        <div><a href="./signin.html">Your account</a></div>
+    </div>
+    <div id="footer">
+        <div>
+            <a href="https://www.booking.com/country.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Countries</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/region.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Regions</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/city.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Cities</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/district.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Districts</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/airport.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Hotels</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/airport.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Resorts</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/airport.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Villas</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/airport.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">Homes</a>
+        </div>
+        <div>
+            <a href="https://secure.booking.com/help.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc&source=footer_navigation#/?source=footer_navigation">Customer Service help</a>
+        </div>
+        <div>
+            <a href="https://partner.booking.com/en-gb?utm_campaign=footer_list&utm_medium=frontend_footer&utm_source=booking.com">Partner help</a>
+        </div>
+        <div>
+            <a href="https://careers.booking.com/?utm_source=corporate&utm_medium=footer">Careers</a>
+        </div>
+        <div>
+            <a href="https://www.booking.com/content/about.en-gb.html?label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtSc2ZYGwAIB0gIkZmU5ODA1ZjItODg2Ni00NzFjLTkxNzItY2FjNTRjZGEzNjlh2AIE4AIB&sid=1313e5090470265dabcd5726504590dc">About Booking.com</a>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    let obj= JSON.parse(localStorage.getItem("logedInDetails"));
+    if(obj!=null){
+        document.querySelector("#account").innerHTML="";
+        let img= document.createElement("img");
+        img.src="data:image/png;base64,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"
+        document.querySelector("#account").append(img);
+        img.addEventListener("click",function(){
+            window.location.href="./account.html"
+        })
+    }
+    else{
+        document.querySelector("#account").innerHTML="";
+        let btn1= document.createElement("button");
+        btn1.setAttribute("id","register");
+        btn1.innerText="Register";
+        let btn2= document.createElement("button");
+        btn2.setAttribute("id","signin");
+        btn2.innerText="Log in";
+        document.querySelector("#account").append(btn1,btn2);
+    }
+</script>
+<script>
+    document.querySelector("#register").addEventListener("click",function(){
+        window.location.href= "./register.html"
+    });
+    document.querySelector("#signin").addEventListener("click",function(){
+        window.location.href= "./register.html"
+    });
+</script>
+<script>
+    let destinations= [
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684682.webp?k=30cf9de93f2a0f87eed7d2d0d9b3e6eccd5dcf3a4b68b4e0151c0800ddc84af7&o=",
+            place: "Lonavala",
+            prop: "750 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=",
+            place: "Goa",
+            prop: "5244 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684765.webp?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=",
+            place: "New Delhi",
+            prop: "2913 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/971346.webp?k=40eeb583a755f2835f4dcb6900cdeba2a46dc9d50e64f2aa04206f5f6fce5671&o=",
+            place: "Mumbai",
+            prop: "1651 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684534.webp?k=d1fe86c22f2433f4e2dda14ddcbe80feb024b0fb30305e5684a1241fba5d4cff&o=",
+            place: "Banglore",
+            prop: "2039 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684657.webp?k=66dc5035b43e9bb86b756e381e4fec2558064af4a63a8af17836725a854c03ee&o=",
+            place: "Mussoorie",
+            prop: "1558 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684769.webp?k=146b18e42b9eb74078f2e80e07e573e8dbac879208b86bae451f99882f566a99&o=",
+            place: "Pondicherry",
+            prop: "692 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684653.webp?k=306ccafcc8a4a7e23b9e8a05b183453fe885b312a4daa5ce76ec39a1b79cbc6f&o=",
+            place: "Hydrabad",
+            prop: "797 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684732.webp?k=54bd15fa6a54076487fcca512f688f679d25b711afc6e4321904c1528dc5f731&o=",
+            place: "Massoorie",
+            prop: "338 properties"
+        },
+        {
+            img: "https://cf.bstatic.com/xdata/images/city/square250/684919.webp?k=0a73fce29109503c055e288c413d9a1c5bd66fdb26f01c1438e8017b0b64b42f&o=",
+            place: "Ooty",
+            prop: "470 properties"
+        }
+    ]
+let x=document.querySelector("#left")
+x.addEventListener("click", leftSliding);
+let y=document.querySelector("#right")
+y.addEventListener("click", rightSliding);
+
+let start = 0;
+let last = 5;
+display(start, last);
+
+function leftSliding() {
+  if (start >= 1 && last >= 6) {
+    start--;
+    last--;
+    display(start, last);
+  }else{
+    start=0
+    last=5
+    display(start, last);
+
+  }
+}
+
+function rightSliding() {
+  if (last < destinations.length - 1) {
+    start++;
+    last++;
+    display(start, last);
+  } else {
+    start = 0;
+    last = 5;
+    display(start, last);
+  }
+}
+
+function display(start, last) {
+  document.querySelector("#popdestinations").innerHTML= "";
+  for (start; start <= last; start++) {
+    let div = document.createElement("div");
+    div.addEventListener("click",function(){
+      window.location.href="index.html"
+     })
+    let image=document.createElement("img")
+    image.src= destinations[start].img;
+
+    let h4 = document.createElement("h4");
+    h4.innerText = destinations[start].place;
+    let p = document.createElement("p");
+    p.innerText = destinations[start].prop;
+    div.append(image,h4, p);
+  
+    document.querySelector("#popdestinations").append(div);
+  }
+}
+</script>
+<script>
+    let properties= [
+        {
+            img: "https://q-xx.bstatic.com/xdata/images/xphoto/300x240/57584488.jpeg?k=d8d4706fc72ee789d870eb6b05c0e546fd4ad85d72a3af3e30fb80ca72f0ba57&o=",
+            type: "Hotels",
+            typeCount: "877,251 hotels"
+        },
+        {
+            img: "https://q-xx.bstatic.com/xdata/images/hotel/300x240/119467716.jpeg?k=f3c2c6271ab71513e044e48dfde378fcd6bb80cb893e39b9b78b33a60c0131c9&o=",
+            type: "Apartments",
+            typeCount: "906,009 apartments"
+        },
+        {
+            img: "https://r-xx.bstatic.com/xdata/images/xphoto/300x240/45450084.jpeg?k=f8c2954e867a1dd4b479909c49528531dcfb676d8fbc0d60f51d7b51bb32d1d9&o=",
+            type: "Resorts",
+            typeCount: "17,978 resorts"
+        },
+        {
+            img: "https://r-xx.bstatic.com/xdata/images/hotel/300x240/100235855.jpeg?k=5b6e6cff16cfd290e953768d63ee15f633b56348238a705c45759aa3a81ba82b&o=",
+            type: "Villas",
+            typeCount: "476,432 villas"
+        },
+        {
+            img: "https://q-xx.bstatic.com/xdata/images/hotel/300x240/52979454.jpeg?k=6ac6d0afd28e4ce00a8f817cc3045039e064469a3f9a88059706c0b45adf2e7d&o=",
+            type: "Cabins",
+            typeCount: "36,202 cabins"
+        },
+        {
+            img: "https://r-xx.bstatic.com/xdata/images/xphoto/300x240/45450074.jpeg?k=7039b03a94f3b99262c4b3054b0edcbbb91e9dade85b6efc880d45288a06c126&o=",
+            type: "Cottages",
+            typeCount: "155,642 cottages"
+        },
+        {
+            img: "https://r-xx.bstatic.com/xdata/images/xphoto/300x240/45450090.jpeg?k=52f6b8190edb5a9c91528f8e0f875752ce55a6beb35dc62873601e57944990e4&o=",
+            type: "Glamping",
+            typeCount: "13,370 glamping sites"
+        }
+    ]
+    let a=document.querySelector("#proleft")
+    a.addEventListener("click", proleftSliding);
+    let b=document.querySelector("#proright")
+    b.addEventListener("click", prorightSliding);
+
+    let prostart = 0;
+    let prolast = 3;
+    display(prostart, prolast);
+
+    function proleftSliding() {
+    if (prostart >= 1 && prolast >= 4) {
+        prostart--;
+        prolast--;
+        display(prostart, prolast);
+    }else{
+        prostart=0
+        prolast=3
+        display(prostart, prolast);
+
+    }
+    }
+
+    function prorightSliding() {
+    if (prolast < destinations.length - 1) {
+        prostart++;
+        prolast++;
+        display(prostart, prolast);
+    } else {
+        prostart = 0;
+        prolast = 3;
+        display(prostart, prolast);
+    }
+    }
+
+    function display(start, last) {
+    document.querySelector("#popproperties").innerHTML= "";
+    for (start; start <= last; start++) {
+        let div = document.createElement("div");
+        div.addEventListener("click",function(){
+        window.location.href="index.html"
+        })
+        let image=document.createElement("img")
+        image.src= properties[start].img;
+
+        let h4 = document.createElement("h4");
+        h4.innerText = properties[start].type;
+        let p = document.createElement("p");
+        p.innerText = properties[start].typeCount;
+        div.append(image,h4, p);
+    
+        document.querySelector("#popproperties").append(div);
+    }
+    }
+</script>
