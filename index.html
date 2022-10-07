@@ -186,8 +186,8 @@
             grid-template-columns: repeat(3,1fr);
         }
         #insDiv2{
-            margin-top: 20px;
-            margin-bottom: 80px;
+            margin-top: 90px;
+            margin-bottom: 170px;
             grid-template-columns: repeat(2,1fr);
         }
         #midtop img, #midmid img, #insDiv img,#insDiv2 img{
@@ -220,7 +220,7 @@
             position: absolute;
             border-radius: 50%;
             font-size: 35px;
-            top: 780px;
+            top: 790px;
             left: 6%;
             border: 0px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -233,14 +233,14 @@
             position: absolute;
             border-radius: 50%;
             font-size: 35px;
-            top: 780px;
+            top: 790px;
             width:40px;
             right: 5.5%;
             border: 0px;
             cursor: pointer;
         }
         #proleft,#proright{
-            top: 1070px;
+            top: 1100px;
         }
         #footertop{
             background-color: darkblue;
@@ -505,6 +505,27 @@
     });
 </script>
 <script>
+
+function display1(start, last) {
+    document.querySelector("#popdestinations").innerHTML= "";
+    for (start; start <= last; start++) {
+        let div = document.createElement("div");
+        div.addEventListener("click",function(){
+        window.location.href="index.html"
+        })
+        let image=document.createElement("img")
+        image.src= destinations[start].img;
+
+        let h4 = document.createElement("h4");
+        h4.innerText = destinations[start].place;
+        let p = document.createElement("p");
+        p.innerText = destinations[start].prop;
+        div.append(image,h4, p);
+    
+        document.querySelector("#popdestinations").append(div);
+    }
+    }
+
     let destinations= [
         {
             img: "https://cf.bstatic.com/xdata/images/city/square250/684682.webp?k=30cf9de93f2a0f87eed7d2d0d9b3e6eccd5dcf3a4b68b4e0151c0800ddc84af7&o=",
@@ -564,17 +585,17 @@ y.addEventListener("click", rightSliding);
 
 let start = 0;
 let last = 5;
-display(start, last);
+display1(start, last);
 
 function leftSliding() {
   if (start >= 1 && last >= 6) {
     start--;
     last--;
-    display(start, last);
+    display1(start, last);
   }else{
     start=0
     last=5
-    display(start, last);
+    display1(start, last);
 
   }
 }
@@ -583,33 +604,16 @@ function rightSliding() {
   if (last < destinations.length - 1) {
     start++;
     last++;
-    display(start, last);
+    display1(start, last);
   } else {
     start = 0;
     last = 5;
-    display(start, last);
+    display1(start, last);
   }
 }
 
-function display(start, last) {
-  document.querySelector("#popdestinations").innerHTML= "";
-  for (start; start <= last; start++) {
-    let div = document.createElement("div");
-    div.addEventListener("click",function(){
-      window.location.href="index.html"
-     })
-    let image=document.createElement("img")
-    image.src= destinations[start].img;
 
-    let h4 = document.createElement("h4");
-    h4.innerText = destinations[start].place;
-    let p = document.createElement("p");
-    p.innerText = destinations[start].prop;
-    div.append(image,h4, p);
-  
-    document.querySelector("#popdestinations").append(div);
-  }
-}
+
 </script>
 <script>
     let properties= [
@@ -672,7 +676,7 @@ function display(start, last) {
     }
 
     function prorightSliding() {
-    if (prolast < destinations.length - 1) {
+    if (prolast < properties.length - 1) {
         prostart++;
         prolast++;
         display(prostart, prolast);
@@ -702,4 +706,6 @@ function display(start, last) {
         document.querySelector("#popproperties").append(div);
     }
     }
+
+    
 </script>
